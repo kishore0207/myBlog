@@ -9,7 +9,8 @@
 import { NgModule } from '@angular/core';
 import { UniversalModule } from 'angular2-universal';
 import { FormsModule } from '@angular/forms';
-import { AppComponent } from './index';
+import { AppComponent} from './index';
+import {HomeComponent,RegisterComponent,LoginComponent,TasksComponent,UsersComponent } from './components';
 // import { RouterModule } from '@angular/router';
 // import { appRoutes } from './app/app.routing';
 
@@ -20,7 +21,7 @@ import { AppComponent } from './index';
   /** Root App Component */
   bootstrap: [ AppComponent ],
   /** Our Components */
-  declarations: [ AppComponent ],
+  declarations: [ AppComponent, HomeComponent, RegisterComponent, LoginComponent, TasksComponent, UsersComponent ],
   imports: [
     /**
      * NOTE: Needs to be your first import (!)
