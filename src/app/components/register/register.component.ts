@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder,Validators  } from '@angular/forms';
+import { CommonService  } from '../../shared/service';
 
 @Component({
   selector: 'register',
-  templateUrl: './register.component.html'
+  templateUrl: './register.component.html',
+  providers: [CommonService]
 })
 export class RegisterComponent implements OnInit {
 private registerForm: FormGroup;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private cs: CommonService ) {
    this.createRegisterForm();
    }
 
@@ -16,13 +18,14 @@ private registerForm: FormGroup;
 
 createRegisterForm(){
    this.registerForm = this.fb.group({
-        name: ['', Validators.required ],
-        email:['', Validators.required ],
-        password:['', Validators.required ]
+        name: ['test', Validators.required ],
+        email:['test12@gmail.com', Validators.required ],
+        password:['12345', Validators.required ]
       });
 };
 onSubmit() {
   const registerData = this.registerForm.value;
   console.log(registerData);
+  this.cs.register('http://localhost/task_manager/v1/register',registerData).subscribe(result => { console.log(result)});
 }
 }

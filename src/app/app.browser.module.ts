@@ -7,6 +7,8 @@
  */
 
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule, JsonpModule } from '@angular/http';
 import { UniversalModule } from 'angular2-universal';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent} from './index';
@@ -27,6 +29,9 @@ import { AppRoutingModule } from './app-routing';
      * NOTE: Needs to be your first import (!)
      * BrowserModule, HttpModule, and JsonpModule are included
      */
+     BrowserModule,
+     HttpModule,
+         JsonpModule,
      AppRoutingModule,
     UniversalModule,
     ReactiveFormsModule
