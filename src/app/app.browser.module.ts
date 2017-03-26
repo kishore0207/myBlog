@@ -15,6 +15,8 @@ import { AppComponent} from './index';
 import  {HomeComponent,RegisterComponent,LoginComponent,TasksComponent,UsersComponent,TaskComponent } from './components';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing';
+import { Constants } from './shared/constants';
+import { CommonService } from './shared/service';
 
 /**
  * Top-level NgModule "container"
@@ -39,7 +41,8 @@ import { AppRoutingModule } from './app-routing';
      * using routes
      */
 
-  ]
+  ],
+  providers: [Constants, CommonService]
 })
 export class AppModule {
 

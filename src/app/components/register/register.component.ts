@@ -4,8 +4,7 @@ import { CommonService  } from '../../shared/service';
 
 @Component({
   selector: 'register',
-  templateUrl: './register.component.html',
-  providers: [CommonService]
+  templateUrl: './register.component.html'
 })
 export class RegisterComponent implements OnInit {
 private registerForm: FormGroup;
@@ -26,6 +25,6 @@ createRegisterForm(){
 onSubmit() {
   const registerData = this.registerForm.value;
   console.log(registerData);
-  this.cs.register('http://localhost/task_manager/v1/register',registerData).subscribe(result => { console.log(result)});
+  this.cs.register(registerData).subscribe(result => { console.log(result)});
 }
 }
