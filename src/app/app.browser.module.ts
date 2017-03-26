@@ -10,7 +10,7 @@ import { NgModule } from '@angular/core';
 import { UniversalModule } from 'angular2-universal';
 import { FormsModule } from '@angular/forms';
 import { AppComponent} from './index';
-import {HomeComponent,RegisterComponent,LoginComponent,TasksComponent,UsersComponent } from './components';
+import  {HomeComponent,RegisterComponent,LoginComponent,TasksComponent,UsersComponent,TaskComponent } from './components';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing';
 
@@ -21,7 +21,7 @@ import { AppRoutingModule } from './app-routing';
   /** Root App Component */
   bootstrap: [ AppComponent ],
   /** Our Components */
-  declarations: [ AppComponent, HomeComponent, RegisterComponent, LoginComponent, TasksComponent, UsersComponent ],
+  declarations: [ AppComponent, HomeComponent, RegisterComponent, LoginComponent, TasksComponent, UsersComponent, TaskComponent ],
   imports: [
     /**
      * NOTE: Needs to be your first import (!)
