@@ -24,9 +24,9 @@ export class CommonService {
       }
 
       postData(url, data) {
-        let headers = new Headers();
-        this.createAuthorizationHeader(headers);
-        return this.http.post(url, data, {headers: headers}).map((res:Response) => res.json());
+        let headers      = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' }); // ... Set content type to JSON
+        let options       = new RequestOptions({ headers: headers });
+        return this.http.post(url, 'name=test2&email=test6%40gmail.com&password=123', {headers: headers}).map((res:Response) => res.json());
        // .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
       }
 
