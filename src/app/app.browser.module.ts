@@ -11,8 +11,8 @@ import { UniversalModule } from 'angular2-universal';
 import { FormsModule } from '@angular/forms';
 import { AppComponent} from './index';
 import {HomeComponent,RegisterComponent,LoginComponent,TasksComponent,UsersComponent } from './components';
-// import { RouterModule } from '@angular/router';
-// import { appRoutes } from './app/app.routing';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing';
 
 /**
  * Top-level NgModule "container"
@@ -27,12 +27,13 @@ import {HomeComponent,RegisterComponent,LoginComponent,TasksComponent,UsersCompo
      * NOTE: Needs to be your first import (!)
      * BrowserModule, HttpModule, and JsonpModule are included
      */
+     AppRoutingModule,
     UniversalModule,
     FormsModule
     /**
      * using routes
      */
-    // RouterModule.forRoot(appRoutes)
+
   ]
 })
 export class AppModule {
