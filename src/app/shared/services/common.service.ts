@@ -12,22 +12,31 @@ export class CommonService {
 
   constructor(private http: Http) { }
 
+public encodeURIComponent(obj): string{
+  let arr = [];
+  console.log(obj.length);
+    for (let i in obj) {
+          arr.push(i + "=" + obj[i]);
+      }
+  console.log(arr.join('&'));
+  return arr.join('&');
+};
+
+
   createAuthorizationHeader(headers: Headers) {
       headers.append('Authorization', 'Basic ' + btoa('username:password'));
       headers.append('Content-Type', 'application/x-www-form-urlencoded');
     }
-     getData(url) {
-        let headers = new Headers();
-        this.createAuthorizationHeader(headers);
-        return this.http.get(url, {headers: headers}).map((res:Response) => res.json())
-        .catch((error:any) => Observable.throw(error.json().error || 'Server error'));;
-      }
-
-      postData(url, data) {
+     login(url, data) {
         let headers      = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' }); // ... Set content type to JSON
         let options       = new RequestOptions({ headers: headers });
-        return this.http.post(url, 'name=test2&email=test6%40gmail.com&password=123', {headers: headers}).map((res:Response) => res.json());
-       // .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+        return this.http.post(url, this.encodeURIComponent(data), {headers: headers}).map((res:Response) => res.json());
+      }
+
+      register(url, data) {
+        let headers      = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' }); // ... Set content type to JSON
+        let options       = new RequestOptions({ headers: headers });
+        return this.http.post(url, this.encodeURIComponent(data), {headers: headers}).map((res:Response) => res.json());
       }
 
 }

@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder,Validators  } from '@angular/forms';
+import { CommonService  } from '../../shared/service';
 
 @Component({
   selector: 'login',
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
+  providers: [CommonService]
 })
 export class LoginComponent implements OnInit {
 private loginForm: FormGroup;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private cs: CommonService) {
    this.createloginForm();
    }
   ngOnInit() {
@@ -15,13 +17,14 @@ private loginForm: FormGroup;
 
 createloginForm(){
    this.loginForm = this.fb.group({
-        email:['', Validators.required ],
-        password:['', Validators.required ]
+        email:['test12@gmail.com', Validators.required ],
+        password:['12345', Validators.required ]
       });
 };
 onSubmit() {
-  const registerData = this.loginForm.value;
-  console.log(registerData);
+  const loginData = this.loginForm.value;
+
+  this.cs.login('http://localhost/task_manager/v1/login',loginData).subscribe(result => { console.log(result)});
 
 }
 }

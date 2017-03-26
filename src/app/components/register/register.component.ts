@@ -26,6 +26,6 @@ createRegisterForm(){
 onSubmit() {
   const registerData = this.registerForm.value;
   console.log(registerData);
-  this.cs.postData('http://localhost/task_manager/v1/register',registerData).subscribe(result => { console.log(result)});
+  this.cs.register('http://localhost/task_manager/v1/register',registerData).subscribe(result => { console.log(result)});
 }
 }
