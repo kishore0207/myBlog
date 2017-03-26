@@ -8,7 +8,7 @@
 
 import { NgModule } from '@angular/core';
 import { UniversalModule } from 'angular2-universal';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent} from './index';
 import  {HomeComponent,RegisterComponent,LoginComponent,TasksComponent,UsersComponent,TaskComponent } from './components';
 import { RouterModule } from '@angular/router';
@@ -29,7 +29,7 @@ import { AppRoutingModule } from './app-routing';
      */
      AppRoutingModule,
     UniversalModule,
-    FormsModule
+    ReactiveFormsModule
     /**
      * using routes
      */
