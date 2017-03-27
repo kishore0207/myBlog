@@ -8,6 +8,7 @@ import { CommonService  } from '../../shared/service';
 })
 export class LoginComponent implements OnInit {
 private loginForm: FormGroup;
+public LoginMsg: string;
   constructor(private fb: FormBuilder, private cs: CommonService) {
    this.createloginForm();
    }
@@ -23,7 +24,7 @@ createloginForm(){
 onSubmit() {
   const loginData = this.loginForm.value;
 
-  this.cs.login(loginData).subscribe(result => { console.log(result)});
+  this.cs.login(loginData).subscribe(result => { this.LoginMsg = result;});
 
 }
 }

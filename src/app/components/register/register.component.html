@@ -17,8 +17,12 @@
   </div>
 </form>
 <div class="row">
+  <div class="alert" *ngIf="RegisterMsg" [ngClass]="{'alert-danger': RegisterMsg.error, 'alert-success': !RegisterMsg.error}">
+    {{RegisterMsg.message}}
+  </div>
   <div class="col-sm-6 col-sm-offset-3">
     <p>Form value: {{ registerForm.value | json }}</p>
     <p>Form value: {{ registerForm.status | json }}</p>
   </div>
+
 </div>
