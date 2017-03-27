@@ -4,8 +4,7 @@ import { CommonService  } from '../../shared/service';
 
 @Component({
   selector: 'login',
-  templateUrl: './login.component.html',
-  providers: [CommonService]
+  templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
 private loginForm: FormGroup;
@@ -24,7 +23,7 @@ createloginForm(){
 onSubmit() {
   const loginData = this.loginForm.value;
 
-  this.cs.login('http://localhost/task_manager/v1/login',loginData).subscribe(result => { console.log(result)});
+  this.cs.login(loginData).subscribe(result => { console.log(result)});
 
 }
 }
